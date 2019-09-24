@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { startGame, cancelGame } from './actions/actions';
 
 class App extends Component {
-  startGame = () => this.props.dispatch(startGame());
-  cancelGame = () => this.props.dispatch(cancelGame());
+  startGame = () => this.props.startGame();
+  cancelGame = () => this.props.cancelGame();
   render() {
     console.log(this)
     return (
@@ -26,18 +26,26 @@ class App extends Component {
             </div>
           )
         }
-    </div>
+      </div>
     )
   }
 }
 
-//Redux special one
+//1 Map Dispatch to Props (Industry most adopted)
+const mapDispatchToProps = dispatch => {
+  return {
+    startGame: () => dispatch(startGame()),
+    cancelGame: () => dispatch(cancelGame())
+  }
+}
+
+//2 Map State to Props (+ dispatch method to invoke)
 const mapStateToProps = state => {
   console.log('state on APP' ,state)
   return { state }
 }
 //Connection between Redux Store and App.
 //mapStateToProps is just a futher way to customize the connect with redux store from our App
-const connector = connect(mapStateToProps);
+const connector = connect(mapStateToProps , mapDispatchToProps);
 
 export default connector(App);
