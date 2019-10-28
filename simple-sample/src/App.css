@@ -1,4 +1,14 @@
 .App {
   text-align: center;
 }
-
+.h1{
+  margin: 20px;
+  font-family: "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+}
+span{
+  padding: 20px;
+}
+span:nth-child(odd){
+ color: red;
+}
