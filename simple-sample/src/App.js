@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import {startGame , cancelGame} from './actions/actions';
+import {startGame , cancelGame } from './actions/actions';
+import Instructions from './instructions';
 class App extends React.Component {
 
   //Just using MapStateToProps
@@ -28,9 +29,11 @@ class App extends React.Component {
               <h3>A new game awaits</h3>
               <br/>
               <button onClick={this.props.startGame}>Start Game</button>
+              <hr />
+              <Instructions />
             </>
           )
-        }
+        } 
       </div>
     );
   }
