@@ -1,16 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import {startGame , cancelGame } from './actions/actions';
-import Instructions from './instructions';
+import {startGame , cancelGame , processNueDeck} from './actions/actions';
+import Instructions from './components/instructions';
 class App extends React.Component {
-
   //Just using MapStateToProps
   // <button onClick={this.handleCancel}>Cancel Game</button>
   // handleCancel = () => this.props.dispatch(cancelGame());
+  startGame = async () => {
+    //UI reducer
+    this.props.startGame();
+    this.props.processNueDeck();
+  }
 
   render(){
     console.log(this);
+    if(this.props.notGrab === false){
+      return (
+        <>
+          <p>Please try reloading the app. An error occurred</p>
+          <p>{this.props.error}</p>
+        </>
+      )
+    }
     return (
       <div className="App">
         <h1>
@@ -28,7 +40,7 @@ class App extends React.Component {
             <>
               <h3>A new game awaits</h3>
               <br/>
-              <button onClick={this.props.startGame}>Start Game</button>
+              <button onClick={this.startGame}>Start Game</button>
               <hr />
               <Instructions />
             </>
@@ -54,7 +66,8 @@ const mapStateToProps = state => {
 
 const compConnector = connect(mapStateToProps , {
   startGame,
-  cancelGame
+  cancelGame,
+  processNueDeck
 });
 
 // export default App;

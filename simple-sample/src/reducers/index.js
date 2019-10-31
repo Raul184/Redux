@@ -27,7 +27,23 @@ const rootReducer = (state = init , action) => {
       return {
         ...state,
         instructionsExpanded: action.instructionsExpanded
-      }    
+      }
+    case types.FETCH_DECK:
+      const { remaining , deck_id , grab  } = action;
+      return {
+        ...state,
+        remaining,
+        deck_id,
+        grab
+      } 
+    case types.FETCH_DECK_ERROR:
+      const { notGrab } = action;
+      return{
+        ...state,
+        notGrab,
+        error: action.msg,
+        
+      }   
     default:
       return state;
   }

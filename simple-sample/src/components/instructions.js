@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { expandInstructions , cancelInstructions} from './actions/actions';
+import { expandInstructions , cancelInstructions} from '../actions/actions';
 
 const Instructions = props => {
   const {cancelInstructions , expandInstructions} = props;
