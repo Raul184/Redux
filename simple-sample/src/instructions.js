@@ -27,8 +27,6 @@ const Instructions = props => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
-  console.log(state.instructionsExpanded)
   return {instructionsExpanded: state.instructionsExpanded}
 }
 
