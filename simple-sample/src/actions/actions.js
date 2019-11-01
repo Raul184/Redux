@@ -24,7 +24,7 @@ export const fetchDeckError = error => {
 //  ==================================
 export const processNueDeck = () => async dispatch => {
   try {
-    let req = await fetch('https://deck-of-cards-api-wrapper.appspot.com/deck/new/shuffle');
+    let req = await fetch(`${process.env.REACT_APP_API_URL}/deck/new/shuffle`);
     req = await req.json();
     console.log(req);
   //fetch Deck reducer
@@ -32,5 +32,23 @@ export const processNueDeck = () => async dispatch => {
   } 
   catch (error) {
     return dispatch(fetchDeckError(error));
+  }
+}
+// ==================================
+export const drawACard = deck_id => async dispatch => {
+  try {
+    let req = await fetch(`${process.env.REACT_APP_API_URL}/deck/${deck_id}/draw`);
+    req = await req.json();
+    
+    return dispatch({
+      type: types.DRAW_CARD ,
+      cards: req.cards,
+      remaining: req.remaining,
+      grab: true
+    });
+  } 
+  catch (error) {
+    // return dispatch(fetchDeckError(error));
+    console.log(error.message);
   }
 }
