@@ -3,10 +3,12 @@ import {types} from '../actions/Types';
 //Init Store state
 const init = {
   gameStarted: false ,
-  instructionsExpanded: false
+  instructionsExpanded: false,
+  cards: []
 }
 
 const rootReducer = (state = init , action) => {
+  let remaining , deck_id , cards ,grab;
   switch (action.type) {
     case types.SET_GAME_STARTED:
       return {
@@ -29,7 +31,7 @@ const rootReducer = (state = init , action) => {
         instructionsExpanded: action.instructionsExpanded
       }
     case types.FETCH_DECK:
-      const { remaining , deck_id , grab  } = action;
+      ({ remaining , deck_id , grab  } = action);
       return {
         ...state,
         remaining,
@@ -42,7 +44,14 @@ const rootReducer = (state = init , action) => {
         ...state,
         notGrab,
         error: action.msg,
-        
+      }
+    case types.DRAW_CARD:
+      ({cards , remaining , grab} = action);
+      return {
+        ...state,
+        cards,
+        remaining,
+        grab
       }   
     default:
       return state;
