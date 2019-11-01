@@ -1,6 +1,7 @@
 import {types} from './Types';
-
 //Actions
+
+// SETTINGS
 export const startGame = () => { 
   return { type: types.SET_GAME_STARTED , gameStarted: true }
 };
@@ -13,7 +14,7 @@ export const expandInstructions = () => {
 export const cancelInstructions = () => { 
   return { type: types.SET_INSTRUCTIONS_COLLAPSED , instructionsExpanded: false }
 };
-//api helpers ==================================
+// API GRAB CARDS DECK
 export const fetchDeckSuccess = deckJson => {
   const {remaining , deck_id } = deckJson;
   return { type: types.FETCH_DECK , remaining , deck_id , grab: true }
@@ -21,7 +22,6 @@ export const fetchDeckSuccess = deckJson => {
 export const fetchDeckError = error => {
   return {type: types.FETCH_DECK_ERROR , msg: error.message , notGrab: false}
 }
-//  ==================================
 export const processNueDeck = () => async dispatch => {
   try {
     let req = await fetch(`${process.env.REACT_APP_API_URL}/deck/new/shuffle`);
@@ -34,7 +34,7 @@ export const processNueDeck = () => async dispatch => {
     return dispatch(fetchDeckError(error));
   }
 }
-// ==================================
+// API DRAW ONE to guess
 export const drawACard = deck_id => async dispatch => {
   try {
     let req = await fetch(`${process.env.REACT_APP_API_URL}/deck/${deck_id}/draw`);
@@ -52,3 +52,12 @@ export const drawACard = deck_id => async dispatch => {
     console.log(error.message);
   }
 }
+// USER GUESS 
+export const userGuessEven = () => {
+  return { type: types.SET_USER_GUESS , guess: 'even'}
+}
+export const userGuessOdd = () => {
+  return { type: types.SET_USER_GUESS , guess: 'odd'}
+}
+
+

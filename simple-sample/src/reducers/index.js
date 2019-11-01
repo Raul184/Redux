@@ -4,7 +4,9 @@ import {types} from '../actions/Types';
 const init = {
   gameStarted: false ,
   instructionsExpanded: false,
-  cards: []
+  cards: [],
+  guess: '',
+  rightGuesses: 0
 }
 
 const rootReducer = (state = init , action) => {
@@ -52,7 +54,12 @@ const rootReducer = (state = init , action) => {
         cards,
         remaining,
         grab
-      }   
+      }
+    case types.SET_USER_GUESS:
+      return {
+        ...state,
+        guess: action.guess
+      }
     default:
       return state;
   }
