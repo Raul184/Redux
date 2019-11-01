@@ -2,7 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import {startGame , cancelGame , processNueDeck} from './actions/actions';
-import Instructions from './components/instructions';
+//Comps.
+import Instructions from './components/Instructions';
+import DrawCard from './components/DrawCard';
+import Card from './components/Card';
+import Guess from './components/Guess';
+
 class App extends React.Component {
   //Just using MapStateToProps
   // <button onClick={this.handleCancel}>Cancel Game</button>
@@ -32,7 +37,12 @@ class App extends React.Component {
           this.props.gameStarted ? (
             <>
               <h3>The game is on!</h3>
+              <Guess />
               <br/>
+              <DrawCard />
+              <hr />
+              <Card />
+              <hr />
               <button onClick={this.props.cancelGame}>Cancel Game</button>
             </>
           ):
