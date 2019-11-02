@@ -1,5 +1,4 @@
-
-//Default one
+//Default reducer
 
 export default () => {
 

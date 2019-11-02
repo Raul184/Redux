@@ -7,19 +7,32 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 //reducers
 import rootReducer from './Reducers';
-//PubNub
-import './pubsub';
-
+//PubSub Class for connect() between PubNub channel arquitec. and Redux
+import PubSub from './pubsub';
 
 //App Store
 const store = createStore(rootReducer);
 
-//For debugging 
-
-// 1. Initial state
+ // 1. Initial state
 console.log('store.getState()' , store.getState());
 // 2. After every update
-store.subscribe( () => console.log('store.getState()' , store.getState()));
+store.subscribe( () => console.log('State Status' , store.getState()));
+
+const pubsub = new PubSub();
+
+pubsub.addListener({
+  message: messageObj => {
+    const { message , channel } = messageObj;
+    console.log('Received msg' , message , 'channel: ' , channel);
+
+    //Send it as An Action Obj to redux Reducers
+    store.dispatch(message);
+  } 
+})
+
+setTimeout( () => {
+  pubsub.publish({ type: 'foo' , value: 'bar' });
+}, 1000 );
 
 
 ReactDOM.render(
