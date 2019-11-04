@@ -6,9 +6,10 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 //reducers
-import rootReducer from './Reducers';
+import rootReducer from './Reducers/combineIndex';
 //PubSub Class for connect() between PubNub channel arquitec. and Redux
 import PubSub from './pubsub';
+import {newMessage} from './Actions/messages';
 
 //App Store
 const store = createStore(rootReducer);
@@ -18,6 +19,7 @@ console.log('store.getState()' , store.getState());
 // 2. After every update
 store.subscribe( () => console.log('State Status' , store.getState()));
 
+//Instantiate it
 const pubsub = new PubSub();
 
 pubsub.addListener({
@@ -31,7 +33,7 @@ pubsub.addListener({
 })
 
 setTimeout( () => {
-  pubsub.publish({ type: 'foo' , value: 'bar' });
+  pubsub.publish(newMessage('Hello world'));
 }, 1000 );
 
 
