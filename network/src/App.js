@@ -1,9 +1,11 @@
 import React from 'react';
+import PublishMessage from './components/PublishMessage';
 
 function App() {
   return (
     <div className="App">
-      HELLO WORLD
+      <h2>Reactions</h2>
+      <PublishMessage />
     </div>
   );
 }
