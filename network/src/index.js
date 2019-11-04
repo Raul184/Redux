@@ -11,7 +11,10 @@ import rootReducer from './Reducers/combineIndex';
 import {PubSub , PubSubContext} from './pubsub';
 import {newMessage} from './Actions/messages';
 //App Store
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer ,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  
+);
 
  // 1. Initial state
 console.log('store.getState()' , store.getState());
