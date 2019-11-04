@@ -2,7 +2,9 @@
 import { combineReducers } from 'redux';
 //Reducers
 import messagesReducer from './messages';
+import userNameReducer from './users';
 
 export default combineReducers({
-  messages: messagesReducer
+  messages: messagesReducer ,
+  userName: userNameReducer
 });
