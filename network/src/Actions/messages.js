@@ -1,8 +1,8 @@
 import types from './types';
 import uuid from 'uuid/v4';
 
-export const newMessage = text => ({
+export const newMessage = ({ text , userName }) => ({
   type: types.NEW_MESSAGE,
-  item: { text , timeStamp: Date.now() , id: uuid() }
+  item: { id: uuid() , timeStamp: Date.now() ,text , userName  }
 });
 

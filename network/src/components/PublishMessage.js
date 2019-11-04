@@ -1,11 +1,11 @@
-import React, { Component , useState} from 'react'
+import React, { Component } from 'react'
 import { PubSubContext } from '../pubsub';
 //Action Obj
 import { newMessage } from '../Actions/messages';
+import { connect } from 'react-redux';
 
 // const pubsub = pubSubContext.pubsub;
-
-export default class PublishMessage extends Component {
+class PublishMessage extends Component {
   state = {
     text: ''
   }
@@ -21,7 +21,8 @@ export default class PublishMessage extends Component {
   //Publish into the channel
   publish = () => {
     const { text } = this.state;
-    this.context.pubsub.publish(newMessage(text));
+    const {userName} = this.props;
+    this.context.pubsub.publish(newMessage( {text , userName}));
   }
   render() {
     return (
@@ -36,3 +37,7 @@ export default class PublishMessage extends Component {
 }
 // Type 
 // PublishMessage.contextType = PubSubContext;
+
+const mapStateToProps = ({ userName }) => ({ userName })
+
+export default connect(mapStateToProps)(PublishMessage);
