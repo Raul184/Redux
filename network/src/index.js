@@ -8,9 +8,8 @@ import { Provider } from 'react-redux';
 //reducers
 import rootReducer from './Reducers/combineIndex';
 //PubSub Class for connect() between PubNub channel arquitec. and Redux
-import PubSub from './pubsub';
+import {PubSub , PubSubContext} from './pubsub';
 import {newMessage} from './Actions/messages';
-
 //App Store
 const store = createStore(rootReducer);
 
@@ -39,7 +38,9 @@ setTimeout( () => {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App /> 
+    <PubSubContext.Provider value={{ pubsub }}>
+      <App />
+    </PubSubContext.Provider> 
   </Provider> , 
   document.getElementById('root')
 );

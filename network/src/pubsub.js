@@ -1,11 +1,13 @@
 import PubNub from 'pubnub';
 //Config for PubNub
 import pubnubConfig from './pubNub.config';
-
+import { createContext } from 'react';
 //Channel creation
 export const MESSAGE_CHANNEL = 'MESSAGE_CHANNEL';
 //PubSub Class for instances to automatically get 
-class PubSub {
+
+
+export class PubSub {
   constructor(){
     //pubSub servers
     this.pubnub = new PubNub( pubnubConfig );
@@ -23,6 +25,4 @@ class PubSub {
   }
 }
 
-
- 
-export default PubSub;
+export const PubSubContext = createContext();
