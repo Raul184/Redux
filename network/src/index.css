@@ -9,3 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App{
+  text-align: center;
+}
+.emoji{
+  cursor: pointer;
+  padding: 5px;
+  margin: 10px;
+}

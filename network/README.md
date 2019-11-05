@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+CHAT project app which allows diferent users (instances) interact simultaneously on real time.
+Project implented on react-redux alongside a Channel arquitecture provided by PubNub
+Users can interact on real time , this can be checked by running the app , opening several tabs (different instances of selected conversations) and talking to each other. 
+A channel is created where all coms occured , then subscribers take info and turn it into Actions Objects which are then , read by reducers 
 ## Available Scripts
 
 In the project directory, you can run:

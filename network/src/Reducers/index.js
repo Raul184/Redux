@@ -1,6 +1,0 @@
-
-//Default one
-
-export default () => {
-
-}
