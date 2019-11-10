@@ -1,0 +1,47 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Changed hard drive on work stations BP005",
+      "attention": false,
+      "date": "03/02/2019",
+      "tech": "Franc Smith"
+    },
+    {
+      "id": 2,
+      "message": "RAM broken on work stations 059",
+      "attention": true,
+      "date": "08/04/2019",
+      "tech": "LoQue Sea"
+    },
+    {
+      "id": 1,
+      "message": "Updated OS license on work stations VP452",
+      "attention": false,
+      "date": "03/11/2019",
+      "tech": "Smith Macias"
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstName": "Franc",
+      "lastName": "Smith"
+    },
+    {
+      "id": 2,
+      "firstName": "LoQue",
+      "lastName": "Sea"
+    },
+    {
+      "id": 3,
+      "firstName": "Smith",
+      "lastName": "Macias"
+    },
+    {
+      "firstName": "Asaco",
+      "lastName": "Paco",
+      "id": 4
+    }
+  ]
+}
