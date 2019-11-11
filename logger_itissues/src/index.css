@@ -4,8 +4,7 @@
 html{
   box-sizing: inherit;
 }
-body , 
-.App{
+body{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
