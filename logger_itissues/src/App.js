@@ -4,6 +4,11 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import Nav from './components/layout/Nav';
 import Logs from './components/Logs/Logs.js';
+import AddBtn from './components/layout/AddBtn';
+import AddLogModal from './components/Logs/AddLogModal';
+import EditLogModal from './components/Logs/EditLogModal';
+import AddTechModal from './components/techs/AddTechModal';
+import TechListModal from './components/techs/TechListModal';
 
 function App() {
   useEffect( () => {
@@ -12,7 +17,14 @@ function App() {
   return (
     <>
       <Nav />
-      <Logs />
+      <div className="container">
+        <AddBtn />
+        <AddLogModal />
+        <EditLogModal />
+        <AddTechModal />
+        <TechListModal />
+        <Logs />  
+      </div>
     </>
   );
 }
