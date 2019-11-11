@@ -3,6 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 //Needs To Be Initialized
 import M from 'materialize-css/dist/js/materialize.min.js';
 import Nav from './components/layout/Nav';
+import Logs from './components/Logs/Logs.js';
 
 function App() {
   useEffect( () => {
@@ -11,7 +12,7 @@ function App() {
   return (
     <>
       <Nav />
-      <h1>Hello</h1>
+      <Logs />
     </>
   );
 }
