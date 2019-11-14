@@ -12,6 +12,7 @@ import TechListModal from './components/techs/TechListModal';
 
 function App() {
   useEffect( () => {
+    //Init materializeJS
     M.AutoInit();
   })
   return (
