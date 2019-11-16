@@ -2,7 +2,7 @@ import React from 'react'
 
 const Nav = () => {
   return (
-  <nav style={{ marginBottom: '30px'}} className="blue">
+  <nav style={{ marginBottom: '40px'}} className="blue">
     <div className="nav-wrapper">
       <form>
         <div className="input-field">
