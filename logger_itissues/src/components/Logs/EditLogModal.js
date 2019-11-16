@@ -1,24 +1,48 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import PropTypes from 'prop-types';
+//redux
+import { connect } from 'react-redux';
+import { updateLogs } from '../../actions/logActions';
 
 
-const EditLogModal = () => {
+const EditLogModal = ({ current , updateLogs }) => {
   const [ message , setMessage ] = useState('');
   const [ attention , setAttention ] = useState(false);
   const [ tech , setTech ] = useState('');
 
-const onSubmit = () => {
-  message === '' || tech === '' ?
-    M.toast({
-      html: 'Please enter a message and select a technician'
-    })
-  :
-  console.log('submitted');
+  useEffect(() => {
+    if(current){
+      setMessage(current.message)
+      setAttention(current.attention)
+      setTech(current.tech)
+    }
+  }, [current])
 
-  //clear fields
-  setMessage('');
-  setAttention(false);
-  setTech('');
+  const onSubmit = () => {
+    if(message === '' || tech === ''){
+      M.toast({
+        html: 'Please enter a message and select a technician'
+      })
+    }
+  else {
+    const data = { 
+      id: current.id , 
+      message , 
+      attention , 
+      tech ,
+      date: new Date() 
+    };
+
+    updateLogs(data);
+    M.toas({
+      html: `Log updated by ${tech}`
+    });
+
+    setMessage('');
+    setAttention(false);
+    setTech('');
+  }  
 }
 
   return (
@@ -32,9 +56,9 @@ const onSubmit = () => {
               value={message} 
               onChange={e => setMessage(e.target.value)}
             />
-            <label htmlFor="message" className='active'>
+            {/* <label htmlFor="message" className='active'>
               log message
-            </label>
+            </label> */}
         </div>
           <div className="input-field">
             <select 
@@ -74,13 +98,22 @@ const onSubmit = () => {
     </div>
   )
 }
-
+//Styles
 const styles = {
   height: "75%" ,
   width: "75%"
 }
 
-
-export default EditLogModal;
+EditLogModal.propTypes = {
+  current: PropTypes.object,
+  updateLogs : PropTypes.func.isRequired,
+}
+//Redux
+const mapStateToProps = state => (
+  {
+    current: state.log.current
+  }
+)
+export default connect( mapStateToProps , { updateLogs })(EditLogModal);
 
 
