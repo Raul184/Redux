@@ -1,5 +1,20 @@
 {
-  "logs": [],
+  "logs": [
+    {
+      "message": "lets see 1",
+      "attention": true,
+      "tech": "1",
+      "date": "2019-11-16T20:02:58.254Z",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "message": "let's see 2 has been finally Editted?",
+      "attention": false,
+      "tech": "1",
+      "date": "2019-11-16T20:12:10.472Z"
+    }
+  ],
   "techs": [
     {
       "id": 1,
