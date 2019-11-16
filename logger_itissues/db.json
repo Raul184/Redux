@@ -2,24 +2,17 @@
   "logs": [
     {
       "id": 1,
-      "message": "Changed hard drive on work stations BP005",
-      "attention": false,
-      "date": "03/02/2019",
-      "tech": "Franc Smith"
+      "message": "lets see 1 is it ok or not?",
+      "attention": true,
+      "tech": "1",
+      "date": "2019-11-16T20:27:49.105Z"
     },
     {
       "id": 2,
-      "message": "RAM broken on work stations 059",
+      "message": "let's see 2 has been finally Editted? si o que",
       "attention": true,
-      "date": "08/04/2019",
-      "tech": "LoQue Sea"
-    },
-    {
-      "id": 3,
-      "message": "Updated OS license on work stations VP452",
-      "attention": false,
-      "date": "03/11/2019",
-      "tech": "Smith Macias"
+      "tech": "1",
+      "date": "2019-11-16T20:28:12.274Z"
     }
   ],
   "techs": [
