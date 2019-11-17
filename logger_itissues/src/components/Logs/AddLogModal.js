@@ -3,6 +3,8 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import { connect } from 'react-redux';
 import { addLogs } from '../../actions/logActions';
 import PropTypes from 'prop-types';
+//comp.
+import TechSelectOptions from '../techs/TechSelectOptions';
 
 const AddLogModal = ({ addLogs }) => {
   const [ message , setMessage ] = useState('');
@@ -48,8 +50,8 @@ const onSubmit = () => {
               value={tech}
               onChange={e => setTech(e.target.value)}
             >
-              <option value="" disabled>Select</option>
-              <option value="1">Jhon</option>  
+              <option value="">Select Technician</option>
+              <TechSelectOptions />
             </select>
           </div>
           <div className="input-field">
