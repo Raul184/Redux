@@ -8,11 +8,11 @@
       "date": "2019-11-16T20:27:49.105Z"
     },
     {
-      "id": 2,
-      "message": "let's see 2 has been finally Editted? si o que",
+      "message": "sdfajslfkjas;lkfdjas;fj",
       "attention": true,
-      "tech": "1",
-      "date": "2019-11-16T20:28:12.274Z"
+      "tech": "Smith Macias",
+      "date": "2020-01-15T12:13:09.458Z",
+      "id": 2
     }
   ],
   "techs": [
@@ -20,11 +20,6 @@
       "id": 3,
       "firstName": "Smith",
       "lastName": "Macias"
-    },
-    {
-      "firstName": "test ",
-      "lastName": "work?",
-      "id": 4
     },
     {
       "firstName": "Select html options ",
